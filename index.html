@@ -24,7 +24,7 @@
 
 <header class="hero">
   <div class="hero-content">
-    <div class="hero-avatar">TM</div>
+    <img class="hero-avatar" src="img/photo.jpg" alt="Tobias Milz" />
     <div class="hero-text">
       <p class="hero-eyebrow">Research Portfolio</p>
       <!-- <h1 class="hero-name">Tobias Milz</h1> -->
@@ -35,9 +35,9 @@
     </p>
       <div class="hero-links">
         <p class="hero-title">Affiliations:</p>
-        <a href="https://taiao.net">TAIAO</a>
-        <a href="https://www.antarcticscienceplatform.org.nz"">Antarctic Science Platform</a>
-        <a href="https://canterbury.ac.nz">UC</a>
+        <a href="https://taiao.net" target="_blank">TAIAO</a>
+        <a href="https://www.antarcticscienceplatform.org.nz" target="_blank">Antarctic Science Platform</a>
+        <a href="https://canterbury.ac.nz" target="_blank">UC</a>
       </div>
     </div>
   </div>
@@ -138,37 +138,164 @@
     <h2>Current Research</h2>
     <div class="section-divider"></div>
   </div>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-num">01</div>
-      <div class="project-category">Ongoing · Funded</div>
-      <div class="project-title">Name of Your Primary Research Project</div>
-      <div class="project-desc">A brief description of what this project investigates, why it matters, and what methods or models you use.</div>
-      <span class="project-status">In Progress</span>
+
+<div class="projects-grid">
+
+  <div class="project-card" onclick="toggleDrawer('drawer-1', this, 'content-1')">
+    <div class="project-num">01</div>
+    <div class="project-category">Ongoing · Antarctica · EDS</div>
+    <div class="project-title">Sea Ice Concentration Forecasting</div>
+    <div class="project-desc">Deep Learning-based prediction of Antarctic Sea Ice Concentration (SIC)
+      and its anomalies.</div>
+    <span class="project-status">In Progress</span>
+  </div>
+
+  <div class="project-card" onclick="toggleDrawer('drawer-1', this, 'content-2')">
+    <div class="project-num">02</div>
+    <div class="project-category">Ongoing · Antarctica · EDS</div>
+    <div class="project-title">Antarctic Heatwave Prediction</div>
+    <div class="project-desc">Forecasting of daily average surface temperatures and heatwaves
+      using graph neural networks.
     </div>
-    <div class="project-card">
-      <div class="project-num">02</div>
-      <div class="project-category">Collaboration · Multi-institutional</div>
-      <div class="project-title">Collaborative Project with [Partner Institution]</div>
-      <div class="project-desc">Describe the collaborative angle — who is involved, what each group contributes, and expected outcomes.</div>
-      <span class="project-status">Active</span>
+    <span class="project-status">Active</span>
+  </div>
+
+  <div class="project-drawer" id="drawer-1">
+    <div class="drawer-inner" id="content-1" style="grid-template-columns: 2fr 1fr;">
+      <div class="drawer-title">SICA-Graph</div>
+      <div class="drawer-text"><p>Sea ice plays a critical role in regulating Earth’s climate and ocean–atmosphere interactions, yet its behaviour around Antarctica has proven highly unpredictable. While Arctic sea ice has steadily declined since satellite observations began, Antarctic sea ice confounded expectations by continuing to expand until it collapsed with unprecedented speed in recent years. The causes and predictability of these changes remain poorly understood, as both the prolonged growth and its sudden reversal defied climate model predictions. In this work, we apply modern graph neural network architectures (DeepGAT, GraphSAGE, and DCRNN) designed for spatio-temporal data to forecast Antarctic sea ice concentration and its anomalies up to eight weeks ahead. Using a novel graph representation of the sea ice, ocean and atmospheric dynamics derived from reanalysis and satellite observations, we show that graph-based models substantially outperform statistical baselines and dynamical systems. The results demonstrate that graph neural networks can capture complex spatial and temporal dependencies, offering a promising new pathway for subseasonal sea ice prediction and polar climate research.</p></div>
+      <figure class="drawer-media" style="width: 70%;">
+        <img src="img/sic_sica_animation.gif" alt="Figure" />
+        <figcaption>Figure 1: SIC/A over time.</figcaption>
+      </figure>
+      <div class="drawer-close">
+        <button onclick="closeDrawer('drawer-1', event)">
+          <div class="arrow-up"></div><span>Close</span>
+        </button>
+      </div>
     </div>
-    <div class="project-card">
-      <div class="project-num">03</div>
-      <div class="project-category">Exploratory · New Direction</div>
-      <div class="project-title">Emerging Work on [New Topic or Method]</div>
-      <div class="project-desc">Outline an exploratory or early-stage research thread — perhaps a new methodology or a preliminary dataset.</div>
-      <span class="project-status">Pilot Phase</span>
-    </div>
-    <div class="project-card">
-      <div class="project-num">04</div>
-      <div class="project-category">Completed · 2022–2024</div>
-      <div class="project-title">Past Project: [Title]</div>
-      <div class="project-desc">Summarise a recently completed project, its findings, and outputs — publications, datasets, or policy recommendations.</div>
-      <span class="project-status">Completed</span>
+    <div class="drawer-inner" id="content-2" style="display:none;">
+      <div class="drawer-title">AntGraph</div>
+      <div class="drawer-text"><p>Antarctica plays a critical role in regulating the global climate, yet its remote location and harsh conditions make accurate weather monitoring and forecasting particularly difficult. A sparse and unevenly distributed network of automatic weather stations, combined with the known limitations of existing numerical weather prediction models such as AMPS in capturing surface-level events, underscores the need for new predictive approaches. With heatwaves increasing in frequency and severity globally, and no prior machine learning-based study addressing extreme temperature prediction for Antarctica, this work investigates that gap. We employ a graph neural network (GNN) to predict average daily temperatures and heatwave events across the Antarctic continent, trained on a newly constructed dataset combining automatic weather station records with satellite-derived temperature products. Our findings contribute a novel data-driven framework for Antarctic temperature forecasting, with implications for climate science, glaciology, and operational safety in the region.</p></div>
+      <figure class="drawer-media">
+        <img src="img/antgraph_c.jpg" alt="Figure" />
+        <figcaption>Figure 2: Graph representation of AWS.</figcaption>
+      </figure>
+      <div class="drawer-close">
+        <button onclick="closeDrawer('drawer-1', event)">
+          <div class="arrow-up"></div><span>Close</span>
+        </button>
+      </div>
     </div>
   </div>
+
+  <div class="project-card" onclick="toggleDrawer('drawer-2', this, 'content-3')">
+    <div class="project-num">03</div>
+    <div class="project-category">Completed · Antarctica · EDS</div>
+    <div class="project-title">Foehn Wind Detection/Prediction</div>
+    <div class="project-desc">Deep Learning-based detection and prediction of foehn wind events.</div>
+    <span class="project-status">Completed</span>
+  </div>
+
+  <div class="project-card" onclick="toggleDrawer('drawer-2', this, 'content-4')">
+    <div class="project-num">04</div>
+    <div class="project-category">Completed · LegalTech · NLP</div>
+    <div class="project-title">Legal Citation Network</div>
+    <div class="project-desc">Project concerning legal data analysis using NLP and graph theory.</div>
+    <span class="project-status">Completed</span>
+  </div>
+
+  <div class="project-drawer" id="drawer-2">
+    <div class="drawer-inner" id="content-3">
+      <div class="drawer-title">Anomaly Detection</div>
+      <div class="drawer-text"><p>Foehn winds are accelerated, warm and dry winds
+that can have large socioeconomic and environmental impacts
+as they descend into the lee of a mountain range. They can
+be found in many alpine areas around the world, including the
+New Zealand Alps and the McMurdo Dry Valleys (MDV) in
+Antarctica. In the latter, foehn winds can cause ice and glacial
+melt and by extension destabilise ice shelves. Hence, detecting
+past and future foehn events from in-situ sensors or climate
+models is of significant interest. However, to the best of our
+knowledge, no unsupervised machine-learning approaches have
+been applied to this domain to provide a data-driven analysis of
+foehn wind patterns. In this study, we show that unsupervised
+methods such as k-means clustering and autoencoder-based
+anomaly detection (AD) can produce comparable results to
+current rule-based and supervised approaches.</p></div>
+      <figure class="drawer-media">
+        <!-- <img src="img/autoencoder_ts.PNG" alt="Figure" /> -->
+        <img src="img/example_foehn_day.jpg" alt="Figure" />
+        <img src="img/autoencoder_architecture.jpg" alt="Figure" />
+        <figcaption>Figure 3: Autoencoder-based Anomaly detection.</figcaption>
+      </figure>
+      <div class="drawer-close">
+        <button onclick="closeDrawer('drawer-2', event)">
+          <div class="arrow-up"></div><span>Close</span>
+        </button>
+      </div>
+    </div>
+    <div class="drawer-inner" id="content-4" style="display:none;">
+      <div class="drawer-title">Law In Order</div>
+      <div class="drawer-text"><p>The potential of leveraging network science in the area of law has long been advocated and highlighted through case and legislation networks. Yet this particular subdomain of data management and information retrieval is still heavily underutilised in both practice and research. One of the contributing factors to this problem is the lack of openly available legal data. This work describes the development of a legal citation network for New Zealand. In contrast to traditional case citation networks, this data repository also includes legislation and court data. Our network provides the data and references from over 300,000 decisions, 10,000 legislations and 115 courts from all levels of jurisdiction. Additionally, we present exemplifying network analysis results to reveal previously hidden information about the New Zealand legal system and to motivate future research in this domain.</p></div>
+      <figure class="drawer-media">
+        <img src="img/big_kamada_colours.png" alt="Figure" />
+        <figcaption>Figure 4: NZ legal citation graph.</figcaption>
+      </figure>
+      <div class="drawer-close">
+        <button onclick="closeDrawer('drawer-2', event)">
+          <div class="arrow-up"></div><span>Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
 </section>
+
+<script>
+  let activeCard = null;
+  let activeContent = null;
+
+  function toggleDrawer(drawerId, card, contentId) {
+    const drawer = document.getElementById(drawerId);
+    const clickedContent = document.getElementById(contentId);
+
+    // clicking the same card that is already open — close everything
+    if (activeContent === contentId) {
+      document.querySelectorAll('.project-drawer').forEach(d => d.classList.remove('open'));
+      document.querySelectorAll('.project-card').forEach(c => c.classList.remove('active', 'dimmed'));
+      activeCard = null;
+      activeContent = null;
+      return;
+    }
+
+    // switch to new content
+    document.querySelectorAll('.project-drawer').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.project-card').forEach(c => c.classList.remove('active', 'dimmed'));
+
+    drawer.querySelectorAll('.drawer-inner').forEach(c => c.style.display = 'none');
+    clickedContent.style.display = 'grid';
+    drawer.classList.add('open');
+    card.classList.add('active');
+    document.querySelectorAll('.project-card').forEach(c => {
+      if (c !== card) c.classList.add('dimmed');
+    });
+
+    activeCard = card;
+    activeContent = contentId;
+
+    setTimeout(() => drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  }
+
+  function closeDrawer(drawerId, event) {
+    event.stopPropagation();
+    document.getElementById(drawerId).classList.remove('open');
+    document.querySelectorAll('.project-card').forEach(c => c.classList.remove('active', 'dimmed'));
+    activeCard = null;
+    activeContent = null;
+  }
+</script>
 
 <!-- CONTACT -->
 <div class="contact-wrapper" id="contact">
