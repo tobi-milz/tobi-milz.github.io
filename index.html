@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Research Portfolio</title>
+<title>Dr. Tobias Milz — Research Portfolio</title>
+<meta name="description" content="Tobias Milz, postdoctoral researcher in Environmental Data Science at the University of Canterbury. Machine learning for Antarctic extreme weather and sea ice prediction." />
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 
 <link rel="stylesheet" href="style.css" />
@@ -24,14 +25,14 @@
 
 <header class="hero">
   <div class="hero-content">
-    <img class="hero-avatar" src="img/tobi_headshot.jpeg" />
+    <img class="hero-avatar" src="img/tobi_headshot.jpeg" alt="Tobias Milz" />
     <div class="hero-text">
       <p class="hero-eyebrow">Research Portfolio</p>
       <!-- <h1 class="hero-name">Tobias Milz</h1> -->
       <p class="hero-title">PhD · Environmental Data Science · University of Canterbury</p>
       <p class="hero-bio">
        Kia ora, my name is Tobi, and I am a postdoc at the University of Canterbury, researching extreme weather events in Antarctica. 
-        My work spans machine learning, environmental data science, anomaly detection, legal tech and natural language processing.</a>
+        My work spans machine learning, environmental data science, anomaly detection, legal tech and natural language processing.
     </p>
       <div class="hero-links">
         <p class="hero-title">Affiliations:</p>
@@ -81,8 +82,8 @@
 </section>
 
 <!-- PUBLICATIONS -->
-<section id="publications" style="background: white; max-width: 100%; padding: 4rem 0;">
-<div style="max-width: 900px; margin: 0 auto; padding: 0 2.5rem;">
+<section id="publications" class="pub-section">
+<div class="pub-inner">
   <div class="section-header">
     <h2>Selected Publications</h2>
     <div class="section-divider"></div>
@@ -96,12 +97,20 @@
         <div class="pub-journal"><em>MIGARS 2024</em> · IEEE · <a href="https://ieeexplore.ieee.org/document/10544892/" target="_blank">DOI: 10.1109/MIGARS61408.2024.10544892</a></div>
       </div>
     </div>
+  <div class="pub-item">
+    <div class="pub-year">2023</div>
+    <div>
+      <div class="pub-title">Law in Order: An Open Legal Citation Network for New Zealand</div>
+      <div class="pub-authors">Milz, T., Macpherson, E., & Vetrova, V.</div>
+      <div class="pub-journal"><em>AusDM 2023</em> · pp. 211–225 · <a href="https://doi.org/10.1007/978-981-99-8696-5_15" target="_blank">DOI: 10.5194/egusphere-egu23-10256</a></div>
+    </div>
+  </div>
     <div class="pub-item">
       <div class="pub-year">2023</div>
       <div>
-        <div class="pub-title">Law in Order: An Open Legal Citation Network for New Zealand</div>
-        <div class="pub-authors">Milz, T., Macpherson, E., & Vetrova, V.</div>
-        <div class="pub-journal"><em>AusDM 2023</em> · pp. 211–225 · <a href="https://doi.org/10.1007/978-981-99-8696-5_15" target="_blank">DOI: 10.1007/978-981-99-8696-5_15</a></div>
+        <div class="pub-title">Foehn Wind Analysis using Unsupervised Deep Anomaly Detection</div>
+        <div class="pub-authors">Milz, T., Hofsteenge, M., Katurji, M., and Vetrova, V.</div>
+        <div class="pub-journal"><em>EGU General Assembly 2023</em> ·  Vienna, Austria · <a href="https://doi.org/10.5194/egusphere-egu23-10256" target="_blank">DOI: 10.1109/MIGARS61408.2024.10544892</a></div>
       </div>
     </div>
     <div class="pub-item">
@@ -161,10 +170,10 @@
   </div>
 
   <div class="project-drawer" id="drawer-1">
-    <div class="drawer-inner" id="content-1" style="grid-template-columns: 2fr 1fr;">
+    <div class="drawer-inner drawer-wide" id="content-1">
       <div class="drawer-title">SICA-Graph</div>
       <div class="drawer-text"><p>Sea ice plays a critical role in regulating Earth’s climate and ocean–atmosphere interactions, yet its behaviour around Antarctica has proven highly unpredictable. While Arctic sea ice has steadily declined since satellite observations began, Antarctic sea ice confounded expectations by continuing to expand until it collapsed with unprecedented speed in recent years. The causes and predictability of these changes remain poorly understood, as both the prolonged growth and its sudden reversal defied climate model predictions. In this work, we apply modern graph neural network architectures (DeepGAT, GraphSAGE, and DCRNN) designed for spatio-temporal data to forecast Antarctic sea ice concentration and its anomalies up to eight weeks ahead. Using a novel graph representation of the sea ice, ocean and atmospheric dynamics derived from reanalysis and satellite observations, we show that graph-based models substantially outperform statistical baselines and dynamical systems. The results demonstrate that graph neural networks can capture complex spatial and temporal dependencies, offering a promising new pathway for subseasonal sea ice prediction and polar climate research.</p></div>
-      <figure class="drawer-media" style="width: 70%;">
+      <figure class="drawer-media drawer-media-narrow">
         <img src="img/sic_sica_animation.gif" alt="Figure" />
         <figcaption>Figure 1: SIC/A over time.</figcaption>
       </figure>
@@ -302,7 +311,7 @@ current rule-based and supervised approaches.</p></div>
   <div class="contact-inner">
     <div class="section-header">
       <h2>Contact</h2>
-      <div class="section-divider" style="background: linear-gradient(to right, var(--gold), transparent);"></div>
+      <div class="section-divider" style="background: linear-gradient(to right, var(--color-accent-light), transparent);"></div>
     </div>
     <div class="contact-grid">
       <div class="contact-text">
@@ -320,7 +329,7 @@ current rule-based and supervised approaches.</p></div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">🔗</div>
-          <div class="contact-detail"><strong>Online</strong><a href=https://scholar.google.com/citations?user=3g4xGtEAAAAJ&hl=en>GoogleScholar</a> · <a href=https://www.linkedin.com/in/tobias-milz>LinkedIn</a> · <a href=https://www.canterbury.ac.nz/about-uc/contact-us/postgrad-directory/tobias-milz>University</a></div>
+          <div class="contact-detail"><strong>Online</strong><a href="https://scholar.google.com/citations?user=3g4xGtEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a> · <a href="https://www.linkedin.com/in/tobias-milz" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://www.canterbury.ac.nz/about-uc/contact-us/postgrad-directory/tobias-milz" target="_blank" rel="noopener">University</a></div>
         </div>
       </div>
     </div>

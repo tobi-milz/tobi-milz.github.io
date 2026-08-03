@@ -52,8 +52,15 @@
   --sans:  'Lato', sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body { font-family: var(--sans); background: var(--color-bg); color: var(--color-text); font-size: 15px; line-height: 1.7; }
+
+/* Anchor links shouldn't land underneath the sticky nav */
+#about, #publications, #projects, #contact { scroll-margin-top: 70px; }
+
+/* Nothing should ever be able to push the page wider than the screen */
+img, svg, video, iframe, figure { max-width: 100%; }
+.pub-journal a, .contact-detail, .contact-detail a { overflow-wrap: anywhere; }
 
 /* NAV — frosted glass */
 nav {
@@ -89,6 +96,7 @@ nav {
 }
 .hero-content {
   display: inline-flex;
+  max-width: 100%;
   align-items: flex-start;
   gap: 3.5rem;
   padding: 2rem;
@@ -156,6 +164,8 @@ section { padding: 4rem 2.5rem; max-width: 900px; margin: 0 auto; }
 .fact-value { font-family: var(--serif); font-size: 1rem; color: var(--color-primary); }
 
 /* PUBLICATIONS */
+.pub-section { background: #fff; max-width: 100%; padding: 4rem 0; }
+.pub-inner { max-width: 900px; margin: 0 auto; padding: 0 2.5rem; }
 .pub-list { display: flex; flex-direction: column; gap: 0; }
 .pub-item {
   padding: 1.25rem 0;
@@ -255,6 +265,8 @@ section { padding: 4rem 2.5rem; max-width: 900px; margin: 0 auto; }
   align-items: start;
   padding: 1rem;
 }
+.drawer-inner.drawer-wide { grid-template-columns: 2fr 1fr; }
+.drawer-media.drawer-media-narrow { width: 70%; }
 
 .drawer-title {
   font-family: var(--serif); font-size: 1.4rem;
@@ -332,3 +344,126 @@ section { padding: 4rem 2.5rem; max-width: 900px; margin: 0 auto; }
 .contact-detail strong { display: block; color: #fff; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; margin-bottom: 2px; }
 
 footer { background: var(--color-footer-bg); padding: 1.25rem 2.5rem; text-align: center; font-size: 0.72rem; color: var(--color-footer-text); letter-spacing: 0.05em; }
+
+
+/* ============================================================
+   RESPONSIVE  —  everything below this line is mobile/tablet only
+   ============================================================ */
+
+/* ---------- TABLET / SMALL LAPTOP ---------- */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { gap: 1.25rem; }
+
+  .hero { padding-left: 1.75rem; padding-right: 1.75rem; padding-bottom: 12rem; }
+  .hero-content { display: flex; gap: 2rem; }
+
+  section { padding: 3rem 1.75rem; }
+  .pub-inner { padding: 0 1.75rem; }
+
+  .about-grid    { grid-template-columns: 1fr; gap: 2rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .contact-grid  { grid-template-columns: 1fr; gap: 2rem; }
+  .contact-wrapper { padding: 3rem 1.75rem; }
+
+  .drawer-inner,
+  .drawer-inner.drawer-wide { grid-template-columns: 1fr; }
+  .drawer-media,
+  .drawer-media.drawer-media-narrow { width: 100%; max-width: 480px; margin: 0 auto; }
+}
+
+/* ---------- PHONES ---------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+
+  /* NAV — brand on one line, links wrapped underneath */
+  nav {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.55rem 1rem;
+    background: rgba(255, 255, 255, 0.88);
+  }
+  .nav-brand { font-size: 1.05rem; }
+  .nav-links {
+    gap: 0.85rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-links a { font-size: 0.68rem; letter-spacing: 0.08em; }
+
+  /* HERO — card stacks, globe sits underneath it */
+  .hero {
+    margin-top: 0;
+    padding: 1.75rem 1.1rem 82vw;
+    background-size: 80% auto;
+    background-position: center bottom;
+  }
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    width: 100%;
+  }
+  .hero-avatar { width: 118px; height: 126px; margin-top: 0; }
+  .hero-text  { max-width: 100%; }
+  .hero-title { font-size: 1rem; margin-bottom: 0.9rem; }
+  .hero-bio   { max-width: 100%; font-size: 0.95rem; text-align: left; }
+  .hero-links { justify-content: center; gap: 0.5rem; margin-top: 1.25rem; }
+  .hero-links .hero-title { width: 100%; margin-bottom: 0.2rem; }
+  .hero-links a { line-height: 1.5; padding: 0.55rem 0.9rem; font-size: 0.68rem; }
+
+  /* SECTIONS */
+  section      { padding: 2.5rem 1.1rem; }
+  .pub-section { padding: 2.5rem 0; }
+  .pub-inner   { padding: 0 1.1rem; }
+  .section-header   { gap: 0.75rem; margin-bottom: 1.5rem; }
+  .section-header h2 { font-size: 1.4rem; }
+
+  /* Justified text creates ugly gaps in a narrow column — left-align it */
+  .hero-bio, .about-text p, .drawer-text, .contact-text { text-align: left; }
+  .about-text p { font-size: 0.98rem; }
+
+  /* PUBLICATIONS — year moves above the entry instead of a 48px gutter */
+  .pub-item { grid-template-columns: 1fr; gap: 0.15rem; padding: 1.1rem 0; }
+  .pub-year { text-align: left; padding-top: 0; }
+  .pub-title   { font-size: 1.05rem; }
+  .pub-authors { font-size: 0.88rem; }
+  .pub-journal { font-size: 0.86rem; }
+
+  /* PROJECTS */
+  .project-card { padding: 1.25rem 1.1rem 2.75rem; }
+  .project-num  { font-size: 1.7rem; top: 0.9rem; right: 1rem; }
+  .project-desc { font-size: 0.9rem; }
+  /* scale() on a full-width card pushes it past the viewport edge */
+  .project-card.active,
+  .project-card.dimmed { transform: none; }
+  .drawer-inner { padding: 1.1rem; }
+  .drawer-title { font-size: 1.25rem; }
+  .drawer-text  { font-size: 0.95rem; }
+  /* Bigger tap target on the close button */
+  .drawer-close button { padding: 0.6rem 1.5rem; }
+
+  /* CONTACT */
+  .contact-wrapper { padding: 2.5rem 1.1rem; }
+  .contact-text   { font-size: 0.95rem; }
+  .contact-detail { font-size: 0.9rem; }
+
+  footer { padding: 1.25rem 1.1rem; font-size: 0.7rem; }
+}
+
+/* ---------- VERY NARROW PHONES (iPhone SE etc.) ---------- */
+@media (max-width: 380px) {
+  .nav-links { gap: 0.65rem; }
+  .nav-links a { font-size: 0.63rem; letter-spacing: 0.05em; }
+  .hero-content, section, .pub-inner, .contact-wrapper { padding-left: 0.9rem; padding-right: 0.9rem; }
+}
+
+/* ---------- Respect reduced-motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.01ms !important; }
+}
